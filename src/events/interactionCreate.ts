@@ -16,6 +16,7 @@ async function interactionCreate(interaction: Interaction) {
                         .setLabel("Player ID")
                         .setStyle(TextInputStyle.Short)
                         .setRequired(true)
+                        .setPlaceholder("You can find your Player ID in the settings menu.")
                 )
             );
 
@@ -31,7 +32,7 @@ async function interactionCreate(interaction: Interaction) {
             if (isBeta) {
                 replyMessage = `Congratulations ${playerName}! You are a beta player. You have been granted the beta tester role.`;
             }
-
+            console.log(`Beta status for ${playFabId}: ${isBeta}`)
             await interaction.reply({ content: replyMessage, ephemeral: true });
         } catch (error) {
             console.error('Error checking beta status:', error);
